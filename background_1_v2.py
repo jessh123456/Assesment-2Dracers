@@ -9,8 +9,10 @@ pygame.init()
 screen = pygame.display.set_mode((700, 600))  # Sets screen size
 background = pygame.transform.scale(pygame.image.load('Background.png'),
                                     (700, 605))  # Import background picture
-lines = pygame.transform.scale(pygame.image.load('triple lines2.png'), (267, 700))
-lines_2 = pygame.transform.scale(pygame.image.load('triple lines2.png'), (267, 700))
+lines = pygame.transform.scale(pygame.image.load('triple lines2.png'),
+                               (267, 700))
+lines_2 = pygame.transform.scale(pygame.image.load('triple lines2.png'),
+                                 (267, 700))
 # Two lines are defined so when one disappears off screen, a second can replace
 screen.blit(background, (0, -3))  # Define Background
 screen.blit(lines, (216, 0))  # Define lines

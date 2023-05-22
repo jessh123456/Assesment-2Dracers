@@ -30,7 +30,7 @@ pygame.display.update()  # Update screen
 
 
 def game_loop():
-    red_car_x = 370
+    red_car_x = 370  # Set position
     red_car_y = 400
     road_x = 150  # Set position
     road_y = 0
@@ -73,12 +73,6 @@ def game_loop():
             pygame.display.update()  # Display update
 
             keys = pygame.key.get_pressed()  # check if user has pressed a key
-            if keys[pygame.K_UP]:  # Up arrow is pressed
-                if red_car_y >= 30:  # Limit so car doesn't go off screen
-                    red_car_y -= 10  # Move up 10
-            if keys[pygame.K_DOWN]:  # Down arrow is pressed
-                if red_car_y <= 430:  # Limit so car doesn't go off screen
-                    red_car_y += 10  # Move down 10
             if keys[pygame.K_LEFT]:  # Left arrow is pressed
                 if red_car_x >= 160:  # Limit so car doesn't go off screen
                     red_car_x -= 10  # Move left 10

@@ -1,8 +1,7 @@
 """ surroundcars_3_v8  TRIALLING
     I have decided I would scrap my code, and completely start again. This is
     a completely different method, involving a class, but it involves a lot
-    less code making it more efficient. I also prevented more than 4 cars
-    from appearing at one time. """
+    less code making it more efficient."""
 
 import pygame  # Imports the pygame module
 import random  # Imports random module
@@ -53,7 +52,7 @@ class Car_Info(pygame.sprite.Sprite):  # Class
         self.image = random.choice(self.cars)  # Randomly selects a sprite
         self.rect = self.image.get_rect(center=(self.car_x, self.car_y))
         # Rectangle of image
-        self.speed = random.randint(5, 9)  # Random speed
+        self.speed = random.randint(7, 11)  # Random speed
 
     def update(self):
         self.car_y += self.speed  # car moves down
@@ -68,7 +67,7 @@ def game_loop():
     road_x = 150  # Set position
     road_y = 0
     road2_y = 701
-    MOVEMENT = 10  # How much the lines will move by (CONSTANT)
+    MOVEMENT = 12  # How much the lines will move by (CONSTANT)
     run1 = False  # Starts lines
     run2 = False  # Starts lines
     clock = pygame.time.Clock()  # Define clock
@@ -119,13 +118,18 @@ def game_loop():
             if random.randrange(1, 30) == 5:  # Random time for cars to appear
                 if len(car_group) < 4:  # Only 4 cars at a time
                     car_pos_x = random.choice(car_x_option)  # Choose a car
-                    car_pos_y = -100  # y-coordinate
-                    while any(abs(car_pos_x - car.car_x) < 60 for car
-                              in car_group):  # Checking if car is beside it
-                        car_pos_x = random.choice(car_x_option)  # Changing x
-                        # position until not on another car
-                    car = Car_Info(car_pos_x, car_pos_y)
-                    car_group.add(car)
+                    car_pos_y = random.randint(-200, -100)  # Random
+                    # y-coordinate between -600 and -110 to prevent cars
+                    # appearing in a line
+                    if not any(abs(-200 <= car.car_y <= -50) for
+                               car in car_group):  # If no car is between -250
+                        # and -50, then spawn a car.
+                        while any(abs(car_pos_x - car.car_x) < 60 for car
+                                  in car_group):  # Check if a car is beside it
+                            car_pos_x = random.choice(car_x_option)  # Changing
+                            # x position until not on another car
+                        car = Car_Info(car_pos_x, car_pos_y)
+                        car_group.add(car)
 
             # Update game objects
             car_group.update()  # Update obstacle positions

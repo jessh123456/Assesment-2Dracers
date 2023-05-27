@@ -145,7 +145,7 @@ def game_loop():
                     car_move2 = random.randrange(5, 9)  # Random speed
                 for car in car_list2:
                     if pygame.Rect.colliderect(car_2_position, car):
-                        print("detected")
+                        print("detected")  # Testing purposes
                         car_move2 = 5
                 car_y2 += car_move2  # Car moves down by random speed
                 car_2_position = pygame.Rect(car_x2, car_y2, 80, 80)

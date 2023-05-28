@@ -1,5 +1,6 @@
 """ 2D Racers!
-    Finished Version"""
+    Finished Version - after end user testing changing the font sizes for
+    scores"""
 
 import pygame  # Imports the pygame module
 import random  # Imports random module
@@ -18,7 +19,7 @@ msg_font = pygame.font.SysFont("freesansbold.ttf", 80)
 small_msg_font = pygame.font.SysFont("freesansbold.ttf", 30)
 space_font = pygame.font.SysFont("freesansbold.ttf", 50)
 score_font = pygame.font.SysFont("freesansbold.ttf", 40)
-mini_score_font = pygame.font.SysFont("freesansbold.ttf", 20)
+mini_score_font = pygame.font.SysFont("freesansbold.ttf", 30)
 instructions = True  # Runs instructions loop until space key is pressed
 white = (255, 255, 255)  # Background instructions colour
 green = (136, 228, 28)  # Background instructions colour
@@ -134,13 +135,13 @@ def print_scores(txt_colour, player_score, font):
     # display score
     txt = font.render(f"Score: {player_score}", True, txt_colour,
                       None)
-    text_box = txt.get_rect(center=(30, 10))
+    text_box = txt.get_rect(center=(50, 20))
     screen.blit(txt, text_box)
     high_score = keep_high_score()  # get high score
     # display high score
     txt2 = font.render(f"High Score: {high_score}", True, txt_colour,
                        None)
-    text_box2 = txt2.get_rect(center=(650, 10))
+    text_box2 = txt2.get_rect(center=(620, 20))
     screen.blit(txt2, text_box2)
 
 

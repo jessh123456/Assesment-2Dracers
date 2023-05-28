@@ -1,7 +1,7 @@
-""" surroundcars_3_v8  TRIALLING
-    I have decided I would scrap my code, and completely start again. This is
-    a completely different method, involving a class, but it involves a lot
-    less code making it more efficient."""
+""" surroundcars_3_v9
+    I fixed the problem with the cars all forming on one line making it
+    impossible for the user to get past. I also made everything a little bit
+    faster because this new version has more gaps."""
 
 import pygame  # Imports the pygame module
 import random  # Imports random module
@@ -119,10 +119,10 @@ def game_loop():
                 if len(car_group) < 4:  # Only 4 cars at a time
                     car_pos_x = random.choice(car_x_option)  # Choose a car
                     car_pos_y = random.randint(-200, -100)  # Random
-                    # y-coordinate between -600 and -110 to prevent cars
+                    # y-coordinate between -200 and -100 to prevent cars
                     # appearing in a line
                     if not any(abs(-200 <= car.car_y <= -50) for
-                               car in car_group):  # If no car is between -250
+                               car in car_group):  # If no car is between -200
                         # and -50, then spawn a car.
                         while any(abs(car_pos_x - car.car_x) < 60 for car
                                   in car_group):  # Check if a car is beside it
